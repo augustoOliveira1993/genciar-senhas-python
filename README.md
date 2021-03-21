@@ -1,4 +1,4 @@
-# genciar-senhas-python
+# Gerenciador de senha Python
 Script para salvar suar senhas em um banco de dados.
 
 [Diretrizes de contribuição para este projeto](docs/CONTRIBUTING.md)
