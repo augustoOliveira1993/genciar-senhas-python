@@ -6,7 +6,7 @@ Script para salvar suar senhas em um banco de dados.
 - Funcionalidade Implementadas:
 
   - [x] Inserir servico
-  - [ ] Remover por id
+  - [x] Remover por id
   - [x] recuperar senha
   - [x] Alterar senha do serviço
   - [ ] Buscar avançada
