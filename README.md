@@ -1,8 +1,6 @@
 # Gerenciador de senha Python
 Script para salvar suar senhas em um banco de dados.
 
-[Diretrizes de contribuição para este projeto](docs/CONTRIBUTING.md)
-
 - Funcionalidade Implementadas:
 
   - [x] Inserir servico
