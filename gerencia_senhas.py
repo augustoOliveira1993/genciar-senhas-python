@@ -7,7 +7,7 @@ cursor = conn.cursor()
 # cursor.execute("""DROP TABLE gerencia_senha""")
 
 def criar_tabela():
-    cursor.execute("""CREATE TABLE gerencia_senha (
+    cursor.execute("""CREATE TABLE IF NOT EXISTS gerencia_senha (
                       id_alter INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                       service TEXT,
                       username TEXT,
@@ -85,14 +85,26 @@ def show_services():
     result = cursor.execute(sql)
     for r in result:
         id_s, service, username, password = r
-        print(f'{service}: {username}')
+        print(f'ID: {id_s} | {service}: {username}')
     print('-=-'*8)
     print()
-        
+    
+def remover_por_id(id_ser: int):
+    cursor.execute(f"""DELETE FROM gerencia_senha WHERE id_alter={id_ser}""")
+    conn.commit()
+    print()
+    print('###'*8)
+    print(f'Serviço deletado com sucesso!')
+    print('###'*8)
+    print()
+
+def mostrar_por_id(id_serv: int):
+    deletado = cursor.execute(f"""SELECT id_alter, service FROM gerencia_senha WHERE id_alter={id_serv}""")
+    return list(deletado)
 
 # cursor.execute("""INSERT INTO gerencia_senha (service, username, password) VALUES ('GitHub', 'gutim160@gmail.com', '88146347')""")
 while True:
-    #criar_tabela()
+    # criar_tabela()
     menu()
     op = str(input('O que voçe deseja fazer? ')).upper()
     if op not in ['I','L','R','S', 'A', 'D']:
@@ -121,6 +133,9 @@ while True:
 
     # TODO: Adicionar fucionalidade
     if op == 'D':
-        service = input('De qual servico deseja alterar senha: ').strip().upper()
-        alterar_senha(service)
+        id_serv = int(input('Qual ID deseja Excluir: '))
+        if not type(id_serv) != int:
+            remover_por_id(id_serv)
+        else:
+            print('Tipo de dados incorreto!, Favor digitar inteiro(int).')
 conn.close()
