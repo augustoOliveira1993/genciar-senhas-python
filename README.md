@@ -8,4 +8,5 @@ Script para salvar suar senhas em um banco de dados.
   - [x] Remover por id
   - [x] recuperar senha
   - [x] Alterar senha do serviço
+  - [x] Limpar console
   - [ ] Buscar avançada
