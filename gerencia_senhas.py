@@ -95,8 +95,12 @@ def show_services():
         print(f'ID: {id_s} | {service}: {username}')
     print('-=-'*8)
     print()
+<<<<<<< HEAD
 
 
+=======
+    
+>>>>>>> 899168ce36735f0e9a7d96438030a3021074a822
 def remover_por_id(id_ser: int):
     cursor.execute(f"""DELETE FROM gerencia_senha WHERE id_alter={id_ser}""")
     conn.commit()
@@ -106,6 +110,7 @@ def remover_por_id(id_ser: int):
     print('###'*8)
     print()
 
+<<<<<<< HEAD
 
 def mostrar_por_id(id_serv: int):
     deletado = cursor.execute(
@@ -116,6 +121,11 @@ def mostrar_por_id(id_serv: int):
 def Limpar_console():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+=======
+def mostrar_por_id(id_serv: int):
+    deletado = cursor.execute(f"""SELECT id_alter, service FROM gerencia_senha WHERE id_alter={id_serv}""")
+    return list(deletado)
+>>>>>>> 899168ce36735f0e9a7d96438030a3021074a822
 
 # cursor.execute("""INSERT INTO gerencia_senha (service, username, password) VALUES ('GitHub', 'gutim160@gmail.com', '88146347')""")
 while True:
